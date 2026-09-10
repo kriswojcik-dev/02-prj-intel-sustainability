@@ -194,12 +194,14 @@ body {
 	gap: 22px;
 	margin: 0 auto;
 	max-width: 1200px;
-	overflow-x: auto;
+	min-width: 0;
+	overflow-x: scroll;
 	overscroll-behavior-x: contain;
 	padding: 8px 0 24px;
 	scroll-padding-left: 0;
-	scroll-snap-type: x mandatory;
+	scroll-snap-type: x proximity;
 	scroll-behavior: smooth;
+	touch-action: pan-x;
 	-webkit-overflow-scrolling: touch;
 }
 
@@ -212,7 +214,7 @@ body {
 	padding: 24px;
 	position: relative;
 	scroll-snap-align: start;
-	scroll-snap-stop: always;
+	scroll-snap-stop: normal;
 	transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
@@ -363,12 +365,20 @@ body {
 	}
 
 	.timeline-list {
-		display: block;
+		display: flex;
+		flex-wrap: nowrap;
+		max-width: none;
+		overflow-x: auto;
+		overflow-y: hidden;
+		padding: 8px 0 24px;
+		scroll-snap-type: x mandatory;
+		touch-action: pan-y;
 	}
 
 	.timeline-card {
-		margin-bottom: 18px;
+		flex: 0 0 100%;
 		min-height: 410px;
+		scroll-snap-align: start;
 	}
 
 	.timeline-card p {
