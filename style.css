@@ -363,12 +363,11 @@ body {
 	}
 
 	.timeline-list {
-		margin-right: -8%;
-		max-width: none;
+		display: block;
 	}
 
 	.timeline-card {
-		flex-basis: 84vw;
+		margin-bottom: 18px;
 		min-height: 410px;
 	}
 

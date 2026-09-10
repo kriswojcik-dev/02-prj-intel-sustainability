@@ -169,5 +169,21 @@
     </div>
   </section>
   <p class="timeline-hint">Scroll to view the timeline | Hover over cards to learn more</p>
+  <script>
+    // Turn the mouse wheel into horizontal movement while it is over the timeline.
+    const timelineSection = document.querySelector('.timeline-section');
+    const timelineList = document.querySelector('.timeline-list');
+
+    timelineSection.addEventListener('wheel', (event) => {
+      const maximumScroll = timelineList.scrollWidth - timelineList.clientWidth;
+      const movingForward = event.deltaY > 0 && timelineList.scrollLeft < maximumScroll;
+      const movingBackward = event.deltaY < 0 && timelineList.scrollLeft > 0;
+
+      if (Math.abs(event.deltaY) > Math.abs(event.deltaX) && maximumScroll > 0 && (movingForward || movingBackward)) {
+        event.preventDefault();
+        timelineList.scrollLeft += event.deltaY;
+      }
+    }, { passive: false });
+  </script>
 </body>
 </html>
