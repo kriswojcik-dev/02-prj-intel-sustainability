@@ -1,9 +1,12 @@
 /* These colors control the whole hero section. */
 :root {
-	--hero-dark: #102d35;
-	--hero-light: #d5e8dd;
+	--hero-dark: #00285c;
+	--hero-light: #e7f7ff;
 	--hero-accent: #00c7fd;
-	--hero-orange: #ef7650;
+	--hero-blue: #0071c5;
+	--page-light: #f3f7fa;
+	--text-muted: #536b80;
+	--line-light: #c9d8e5;
 }
 
 /* Keep sizing predictable on every screen. */
@@ -17,7 +20,7 @@ html {
 
 body {
 	margin: 0;
-	background-color: #f5f2e9;
+	background-color: var(--page-light);
 	color: var(--hero-dark);
 	font-family: Georgia, 'Times New Roman', serif;
 }
@@ -37,7 +40,7 @@ body {
 /* Two soft rings add depth without distracting from the heading. */
 .hero-section::before,
 .hero-section::after {
-	border: 1px solid rgba(213, 232, 221, 0.2);
+	border: 1px solid rgba(0, 199, 253, 0.24);
 	border-radius: 50%;
 	content: '';
 	height: 500px;
@@ -67,7 +70,7 @@ body {
 }
 
 .hero-label {
-	color: var(--hero-orange);
+	color: var(--hero-accent);
 	font-family: Arial, sans-serif;
 	font-size: 11px;
 	font-weight: bold;
@@ -90,7 +93,7 @@ body {
 }
 
 .hero-description {
-	color: #bdd0cb;
+	color: #c5d9e8;
 	font-size: 18px;
 	line-height: 1.55;
 	margin: 0;
@@ -146,8 +149,8 @@ body {
 
 /* The timeline uses cards so each moment is easy to scan. */
 .timeline-section {
-	background-color: #f5f2e9;
-	padding: 105px 10% 85px;
+	background-color: var(--page-light);
+	padding: 105px 10% 125px;
 }
 
 .timeline-heading {
@@ -156,7 +159,7 @@ body {
 }
 
 .timeline-label {
-	color: var(--hero-orange);
+	color: var(--hero-blue);
 	font-family: Arial, sans-serif;
 	font-size: 11px;
 	font-weight: bold;
@@ -174,12 +177,12 @@ body {
 }
 
 .timeline-heading h2 em {
-	color: #4a8076;
+	color: var(--hero-blue);
 	font-style: italic;
 }
 
 .timeline-intro {
-	color: #687775;
+	color: var(--text-muted);
 	line-height: 1.55;
 	margin: 22px 0 0;
 	max-width: 540px;
@@ -195,7 +198,7 @@ body {
 
 .timeline-card {
 	background-color: white;
-	border: 1px solid #d9d8cf;
+	border: 1px solid var(--line-light);
 	flex: 1 1 245px;
 	min-height: 410px;
 	padding: 24px;
@@ -204,12 +207,12 @@ body {
 }
 
 .timeline-card:hover {
-	box-shadow: 8px 8px 0 #b9d9c6;
+	box-shadow: 8px 8px 0 rgba(0, 199, 253, 0.35);
 	transform: translateY(-5px);
 }
 
 .timeline-card h2 {
-	color: #0071c5;
+	color: var(--hero-blue);
 	font-family: Arial, sans-serif;
 	font-size: 14px;
 	letter-spacing: 0.12em;
@@ -233,23 +236,43 @@ body {
 	width: calc(100% + 48px);
 }
 
+/* The 2025 photo needs a higher crop to keep the faces in view. */
+.timeline-card:nth-child(10) img {
+	object-position: center 20%;
+}
+
 .timeline-card p {
-	color: #687775;
+	color: var(--text-muted);
 	font-size: 14px;
 	line-height: 1.55;
 	margin: 0;
+	opacity: 0;
+	transform: translateY(8px);
+	transition: opacity 0.2s ease, transform 0.2s ease;
+	visibility: hidden;
+}
+
+.timeline-card:hover p {
+	opacity: 1;
+	transform: translateY(0);
+	visibility: visible;
 }
 
 .timeline-hint {
 	background-color: var(--hero-dark);
-	color: #bdd0cb;
+	color: #c5d9e8;
+	bottom: 0;
 	font-family: Arial, sans-serif;
 	font-size: 11px;
+	left: 0;
 	letter-spacing: 0.1em;
 	margin: 0;
 	padding: 18px 10%;
+	position: fixed;
+	right: 0;
 	text-align: center;
 	text-transform: uppercase;
+	z-index: 10;
 }
 
 @media (max-width: 650px) {
@@ -283,7 +306,7 @@ body {
 	}
 
 	.timeline-section {
-		padding: 70px 8% 60px;
+		padding: 70px 8% 100px;
 	}
 
 	.timeline-heading {
@@ -303,6 +326,12 @@ body {
 	.timeline-card {
 		margin-bottom: 18px;
 		min-height: auto;
+	}
+
+	.timeline-card p {
+		opacity: 1;
+		transform: none;
+		visibility: visible;
 	}
 
 	.timeline-card img {
