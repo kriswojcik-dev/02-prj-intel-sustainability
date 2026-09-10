@@ -320,6 +320,10 @@ body {
 	z-index: 10;
 }
 
+.mobile-hint {
+	display: none;
+}
+
 @media (max-width: 650px) {
 	.hero-section {
 		min-height: 650px;
@@ -372,7 +376,7 @@ body {
 		overflow-y: hidden;
 		padding: 8px 0 24px;
 		scroll-snap-type: x mandatory;
-		touch-action: pan-y;
+		touch-action: pan-x;
 	}
 
 	.timeline-card {
@@ -382,14 +386,36 @@ body {
 	}
 
 	.timeline-card p {
-		opacity: 1;
-		transform: none;
-		visibility: visible;
+		font-size: 18px;
+		line-height: 1.6;
+		opacity: 0;
+		transform: translateY(8px);
+		visibility: hidden;
+	}
+
+	.timeline-card:hover p {
+		opacity: 0;
+		transform: translateY(8px);
+		visibility: hidden;
 	}
 
 	.timeline-card h2,
 	.timeline-card h3 {
 		opacity: 1;
+	}
+
+	.timeline-card.is-open p {
+		opacity: 1;
+		transform: translateY(0);
+		visibility: visible;
+	}
+
+	.desktop-hint {
+		display: none;
+	}
+
+	.mobile-hint {
+		display: inline;
 	}
 
 	.timeline-card img {

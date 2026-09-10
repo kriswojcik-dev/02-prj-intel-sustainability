@@ -23,7 +23,7 @@
     </div>
     <div class="hero-marker" aria-hidden="true">
       <span>01</span>
-      <span>09</span>
+      <span>11</span>
     </div>
   </header>
 
@@ -31,7 +31,7 @@
   <section class="timeline-section" id="timeline">
     <div class="timeline-heading">
       <div>
-        <p class="timeline-label">The archive / 01—09</p>
+        <p class="timeline-label">The archive / 01—11</p>
         <h2>Milestones <em>in motion.</em></h2>
         <p class="timeline-intro">From the first microprocessor to a net-zero future, follow the decisions that shaped Intel's sustainability journey.</p>
       </div>
@@ -168,7 +168,10 @@
     </div>
     </div>
   </section>
-  <p class="timeline-hint">Scroll to view the timeline | Hover over cards to learn more</p>
+  <p class="timeline-hint">
+    <span class="desktop-hint">Scroll to view the timeline | Hover over cards to learn more</span>
+    <span class="mobile-hint">Swipe to view the timeline | Tap to learn more</span>
+  </p>
   <script>
     // Turn the mouse wheel into horizontal movement while it is over the timeline.
     const timelineSection = document.querySelector('.timeline-section');
@@ -211,6 +214,15 @@
         touchStartY = touch.clientY;
       }
     }, { passive: false });
+
+    // On mobile, tapping a card reveals or hides its description.
+    document.querySelectorAll('.timeline-card').forEach((card) => {
+      card.addEventListener('click', () => {
+        if (window.innerWidth <= 650) {
+          card.classList.toggle('is-open');
+        }
+      });
+    });
   </script>
 </body>
 </html>
