@@ -1,1 +1,311 @@
-/* Add your CSS here */
+/* These colors control the whole hero section. */
+:root {
+	--hero-dark: #102d35;
+	--hero-light: #d5e8dd;
+	--hero-accent: #00c7fd;
+	--hero-orange: #ef7650;
+}
+
+/* Keep sizing predictable on every screen. */
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background-color: #f5f2e9;
+	color: var(--hero-dark);
+	font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* The hero is the first visual impression of the page. */
+.hero-section {
+	align-items: center;
+	background-color: var(--hero-dark);
+	color: white;
+	display: flex;
+	min-height: 590px;
+	overflow: hidden;
+	padding: 72px 10%;
+	position: relative;
+}
+
+/* Two soft rings add depth without distracting from the heading. */
+.hero-section::before,
+.hero-section::after {
+	border: 1px solid rgba(213, 232, 221, 0.2);
+	border-radius: 50%;
+	content: '';
+	height: 500px;
+	position: absolute;
+	right: -130px;
+	top: -80px;
+	width: 500px;
+}
+
+.hero-section::after {
+	height: 320px;
+	right: 60px;
+	top: 185px;
+	width: 320px;
+}
+
+.hero-content {
+	max-width: 720px;
+	position: relative;
+	z-index: 1;
+}
+
+.intel-logo {
+	display: block;
+	margin-bottom: 52px;
+	width: 155px;
+}
+
+.hero-label {
+	color: var(--hero-orange);
+	font-family: Arial, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: 0.14em;
+	margin: 0 0 22px;
+	text-transform: uppercase;
+}
+
+.hero-section h1 {
+	font-size: clamp(52px, 9vw, 106px);
+	font-weight: normal;
+	letter-spacing: -0.06em;
+	line-height: 0.9;
+	margin: 0 0 32px;
+}
+
+.hero-section h1 em {
+	color: var(--hero-light);
+	font-style: italic;
+}
+
+.hero-description {
+	color: #bdd0cb;
+	font-size: 18px;
+	line-height: 1.55;
+	margin: 0;
+	max-width: 460px;
+}
+
+.hero-link {
+	border-bottom: 1px solid var(--hero-accent);
+	color: white;
+	display: inline-block;
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 0.08em;
+	margin-top: 34px;
+	padding-bottom: 10px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.hero-link span {
+	color: var(--hero-accent);
+	font-size: 18px;
+	margin-left: 28px;
+}
+
+.hero-link:hover {
+	border-color: white;
+}
+
+.hero-marker {
+	align-items: center;
+	bottom: 72px;
+	color: var(--hero-light);
+	display: flex;
+	flex-direction: column;
+	font-family: Arial, sans-serif;
+	font-size: 10px;
+	gap: 34px;
+	position: absolute;
+	right: 10%;
+	z-index: 1;
+}
+
+.hero-marker::before {
+	background-color: var(--hero-accent);
+	content: '';
+	height: 25px;
+	position: absolute;
+	top: 17px;
+	width: 1px;
+}
+
+/* The timeline uses cards so each moment is easy to scan. */
+.timeline-section {
+	background-color: #f5f2e9;
+	padding: 105px 10% 85px;
+}
+
+.timeline-heading {
+	margin: 0 auto 55px;
+	max-width: 1200px;
+}
+
+.timeline-label {
+	color: var(--hero-orange);
+	font-family: Arial, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: 0.14em;
+	margin: 0 0 18px;
+	text-transform: uppercase;
+}
+
+.timeline-heading h2 {
+	font-size: clamp(42px, 6vw, 76px);
+	font-weight: normal;
+	letter-spacing: -0.06em;
+	line-height: 0.95;
+	margin: 0;
+}
+
+.timeline-heading h2 em {
+	color: #4a8076;
+	font-style: italic;
+}
+
+.timeline-intro {
+	color: #687775;
+	line-height: 1.55;
+	margin: 22px 0 0;
+	max-width: 540px;
+}
+
+.timeline-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 22px;
+	margin: 0 auto;
+	max-width: 1200px;
+}
+
+.timeline-card {
+	background-color: white;
+	border: 1px solid #d9d8cf;
+	flex: 1 1 245px;
+	min-height: 410px;
+	padding: 24px;
+	position: relative;
+	transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.timeline-card:hover {
+	box-shadow: 8px 8px 0 #b9d9c6;
+	transform: translateY(-5px);
+}
+
+.timeline-card h2 {
+	color: #0071c5;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	letter-spacing: 0.12em;
+	margin: 0 0 12px;
+}
+
+.timeline-card h3 {
+	font-size: 26px;
+	font-weight: normal;
+	line-height: 1.05;
+	margin: 0 0 20px;
+	min-height: 55px;
+}
+
+.timeline-card img {
+	display: block;
+	height: 150px;
+	margin: 0 -24px 21px;
+	object-fit: cover;
+	object-position: center;
+	width: calc(100% + 48px);
+}
+
+.timeline-card p {
+	color: #687775;
+	font-size: 14px;
+	line-height: 1.55;
+	margin: 0;
+}
+
+.timeline-hint {
+	background-color: var(--hero-dark);
+	color: #bdd0cb;
+	font-family: Arial, sans-serif;
+	font-size: 11px;
+	letter-spacing: 0.1em;
+	margin: 0;
+	padding: 18px 10%;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+@media (max-width: 650px) {
+	.hero-section {
+		min-height: 650px;
+		padding: 48px 8% 90px;
+	}
+
+	.intel-logo {
+		margin-bottom: 42px;
+	}
+
+	.hero-description {
+		font-size: 16px;
+		max-width: 340px;
+	}
+
+	.hero-marker {
+		bottom: 34px;
+		flex-direction: row;
+		gap: 45px;
+		left: 8%;
+		right: auto;
+	}
+
+	.hero-marker::before {
+		height: 1px;
+		left: 23px;
+		top: 5px;
+		width: 30px;
+	}
+
+	.timeline-section {
+		padding: 70px 8% 60px;
+	}
+
+	.timeline-heading {
+		align-items: start;
+		display: block;
+		margin-bottom: 38px;
+	}
+
+	.timeline-intro {
+		margin-top: 24px;
+	}
+
+	.timeline-list {
+		display: block;
+	}
+
+	.timeline-card {
+		margin-bottom: 18px;
+		min-height: auto;
+	}
+
+	.timeline-card img {
+		height: 165px;
+	}
+}
