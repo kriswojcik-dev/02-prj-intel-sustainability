@@ -218,9 +218,10 @@ body {
 	font-size: 14px;
 	letter-spacing: 0.12em;
 	margin: 0 0 12px;
+	opacity: 1;
 	position: relative;
-	text-shadow: 0 1px 5px rgba(0, 40, 92, 0.8);
-	z-index: 1;
+	transition: opacity 0.2s ease;
+	z-index: 3;
 }
 
 .timeline-card h3 {
@@ -230,47 +231,46 @@ body {
 	line-height: 1.05;
 	margin: 0 0 20px;
 	min-height: 55px;
+	opacity: 1;
 	position: relative;
-	text-shadow: 0 1px 5px rgba(0, 40, 92, 0.8);
-	z-index: 1;
+	transition: opacity 0.2s ease;
+	z-index: 3;
 }
 
 .timeline-card img {
 	display: block;
-	height: 100%;
+	bottom: 0;
+	height: calc(100% - 132px);
 	left: 0;
 	margin: 0;
 	object-fit: cover;
-	object-position: center;
 	position: absolute;
-	top: 0;
+	top: 132px;
 	width: 100%;
 	z-index: 0;
 }
 
-/* The 2025 photo needs a higher crop to keep the faces in view. */
-.timeline-card:nth-child(10) img {
-	object-position: center 20%;
-}
-
 .timeline-card p {
 	background-color: rgba(0, 40, 92, 0.9);
-	bottom: 0;
+	inset: 0;
 	color: white;
 	font-size: 14px;
 	line-height: 1.55;
 	margin: 0;
-	max-height: 62%;
+	max-height: none;
 	opacity: 0;
 	overflow: auto;
-	padding: 24px;
+	padding: 155px 24px 24px;
 	position: absolute;
-	left: 0;
-	right: 0;
 	transform: translateY(8px);
 	transition: opacity 0.2s ease, transform 0.2s ease;
 	visibility: hidden;
 	z-index: 2;
+}
+
+.timeline-card:hover h2,
+.timeline-card:hover h3 {
+	opacity: 1;
 }
 
 .timeline-card:hover p {
@@ -355,7 +355,12 @@ body {
 		visibility: visible;
 	}
 
+	.timeline-card h2,
+	.timeline-card h3 {
+		opacity: 1;
+	}
+
 	.timeline-card img {
-		height: 100%;
+		height: calc(100% - 132px);
 	}
 }
